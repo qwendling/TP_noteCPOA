@@ -1,12 +1,12 @@
 #include "PileOperGen.h"
 
 template<typename T>
-PileOperGen<T> PileOperGen::compactSomme(){
+PileOperGen<T> PileOperGen<T>::compactSomme(){
     T somme;
 
-    for(int i=0;i<size();i++){
-        somme+=head();
-        pop();
+    for(int i=0;i<this->size();i++){
+        somme+=this->head();
+        this->pop();
     }
     push(somme);
 
@@ -14,25 +14,20 @@ PileOperGen<T> PileOperGen::compactSomme(){
 }
 
 template<typename T>
-PileOperGen<T> PileOperGen::operator*(const PileOperGen<T>& po)const{
+PileOperGen<T> PileOperGen<T>::operator*(const PileOperGen<T>& po)const{
 
-    assert(size() == p.size());
+    assert(this->size() == po.size());
     PileOperGen<T> result;
-    for(int i =0;i<i<size();i++){
-        result.push((*this)[i]*p[i]);
+    for(int i =0;i<this->size();i++){
+        result.push((*this)[i]*po[i]);
     }
     return result;
 
 }
 
-/*template<typename T>
-auto scalaire(PileOperGen<T> po1,PileOperGen<T> po2)
--> typename std::enable_if<std::is_floating_point<T>::value,PileOperGen<double>>::type{
-
-}
 
 template<typename T>
-auto scalaire(PileOperGen<T> po1,PileOperGen<T> po2)
--> typename std::enable_if<std::is_integral<T>::value,PileOperGen<long long>>::type{
-
-}*/
+T scalaire(const PileOperGen<T>& p1,const PileOperGen<T>& p2){
+    PileOperGen<T> inter = p1*p2;
+    return inter.compactSomme().head();
+}

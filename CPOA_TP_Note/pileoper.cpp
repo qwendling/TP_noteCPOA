@@ -25,7 +25,7 @@ PileOper PileOper::compactSomme(){
 PileOper PileOper::operator*(const PileOper& p)const{
     assert(size() == p.size());
     PileOper result;
-    for(int i =0;i<i<size();i++){
+    for(int i =0;i<size();i++){
         result.push((*this)[i]*p[i]);
     }
     return result;
