@@ -1,5 +1,6 @@
 #include "pile.h"
 #include "pileoper.h"
+#include "PileOperGen.h"
 
 int main()
 {

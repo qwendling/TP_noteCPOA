@@ -11,4 +11,5 @@ public:
 };
 
 float scalaire(const PileOper& p1,const PileOper& p2);
+
 #endif // PILEOPER_H
