@@ -59,7 +59,17 @@ int main()
     std::cout << "Jedi -> Sith : " << std::endl;
     std::for_each(vec_perso.begin(),vec_perso.end(),use_attaque);
 
-    Rebelle* p_rebelle = new Rebelle("Rob","un nouvel espoir");
+
+    //Exemple de code pour NoSenseForce -> SenseForce
+    Skywalker* p_sky = new Skywalker();
+    NoSenseForce* p_nsf = p_sky;
+    SenseForce* p_sf = dynamic_cast<Skywalker*>(p_nsf);
+    if(p_sf != NULL)
+        std::cout << "cast reussi" << std::endl;
+
+
+
+
 
     return 0;
 }
